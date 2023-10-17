@@ -12,7 +12,7 @@ namespace CardGame
         protected string nome;
         protected int estrela;
         protected string elemento;
-        protected string path;
+        protected string path = @"..\..\..\Imagens\valquiria-clash-royale.png";
 
         public bool faceUp = false;//indica se a carta está voltada para cima ou não
 
@@ -27,9 +27,21 @@ namespace CardGame
 
 
         public Card()
-        { 
+        {
             DefaultAttributes();
         }
+        public void SetId(int id) { this.id = id; }
+        public void SetNome(string nome) { this.nome = nome; }
+        public void SetEstrela(int estrela) { this.estrela = estrela; }
+        public void SetElemento(string elemento) { this.elemento = elemento; }
+        public void SetPath(string path) { this.path = path; }
+
+        public int GetId() { return this.id; }
+        public string GetNome() { return this.nome; }
+        public int GetEstrela() { return this.estrela; }
+        public string GetElemento() { return this.elemento; }
+        public string GetPath() { return this.path; }
+
         protected void DefaultAttributes()
         {
             FlipCard();
@@ -61,9 +73,14 @@ namespace CardGame
             faceUp = !faceUp;
 
             if (faceUp)
-                this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            {
+                this.Image = Image.FromFile(path);
+            }
             else
-                this.BackColor = System.Drawing.SystemColors.ControlDark;
+            {
+                this.Image = Image.FromFile(@"..\..\..\Imagens\cartaMonstro_Virada.gif");
+            }
+
         }
 
         private void Card_MouseDown(object sender, MouseEventArgs e) //responde ao evento de pressionar
@@ -95,6 +112,10 @@ namespace CardGame
         private void Card_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;
+        }
+        protected override void OnClick(EventArgs e)
+        {
+
         }
     }
 }

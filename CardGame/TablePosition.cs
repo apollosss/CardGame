@@ -14,9 +14,6 @@ namespace CardGame
         }
 
         // Event handler for the click event
-        protected override void OnClick(EventArgs e)
-        {
-            MessageBox.Show("Cliquei numa carta");
-        }
+        
     }
 }
