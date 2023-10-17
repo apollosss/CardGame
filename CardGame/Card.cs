@@ -8,10 +8,17 @@ namespace CardGame
 {
     internal class Card : System.Windows.Forms.PictureBox
     {
+        protected int id;
+        protected string nome;
+        protected int estrela;
+        protected string elemento;
+        protected string path = @"..\..\..\Imagens\valquiria-clash-royale.png";
+
         public bool faceUp = false;//indica se a carta está voltada para cima ou não
 
         public bool isDragging = false;// indica se a carta está atualmente sendo arrastada (dragged) pelo jogador
                                        // Quando ela for arratada,devemos atualizar sua posição.
+
 
         private Point offset;
 
@@ -19,23 +26,38 @@ namespace CardGame
         //posição da carta quando o jogador começa a arrastar a carta. 
 
 
-        public Card(int x, int y)
+        public Card()
+        {
+            DefaultAttributes();
+        }
+        public void SetId(int id) { this.id = id; }
+        public void SetNome(string nome) { this.nome = nome; }
+        public void SetEstrela(int estrela) { this.estrela = estrela; }
+        public void SetElemento(string elemento) { this.elemento = elemento; }
+        public void SetPath(string path) { this.path = path; }
+
+        public int GetId() { return this.id; }
+        public string GetNome() { return this.nome; }
+        public int GetEstrela() { return this.estrela; }
+        public string GetElemento() { return this.elemento; }
+        public string GetPath() { return this.path; }
+
+        protected void DefaultAttributes()
         {
             FlipCard();
-            this.Location = new System.Drawing.Point(x, y);
-            this.Size = new System.Drawing.Size(140, 205);
+            this.Size = new System.Drawing.Size(140, 200);
             this.TabIndex = 0;
             this.TabStop = false;
 
             // Associação dos métodos que irão tratar o arrastar e soltar das cartas
+            this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.MouseDown += Card_MouseDown;
             this.MouseMove += Card_MouseMove;
             this.MouseUp += Card_MouseUp;
+            this.SizeMode = PictureBoxSizeMode.StretchImage;
         }
-
         protected override void OnDoubleClick(EventArgs e)// Quando o usuário realiza um clique duplo em uma carta,
-                                                          // esse método será chamado 
-
+                                                          // esse método será
         {
             FlipCard();
         }
@@ -51,9 +73,14 @@ namespace CardGame
             faceUp = !faceUp;
 
             if (faceUp)
-                this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            {
+                this.Image = Image.FromFile(path);
+            }
             else
-                this.BackColor = System.Drawing.SystemColors.ControlDark;
+            {
+                this.Image = Image.FromFile(@"..\..\..\Imagens\cartaMonstro_Virada.gif");
+            }
+
         }
 
         private void Card_MouseDown(object sender, MouseEventArgs e) //responde ao evento de pressionar
@@ -85,6 +112,10 @@ namespace CardGame
         private void Card_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;
+        }
+        protected override void OnClick(EventArgs e)
+        {
+
         }
     }
 }

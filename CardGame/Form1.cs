@@ -5,6 +5,7 @@ namespace CardGame
         public Form1()
         {
             InitializeComponent();
+            
         }
     }
 }
