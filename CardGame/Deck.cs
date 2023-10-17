@@ -10,9 +10,9 @@ namespace CardGame
     {
         public List<Card> cards = new List<Card>();
 
-        public Deck(List<Card> cardss)
+        public Deck(List<Card> cards)
         {
-            this.cards = cardss;
+            this.cards = cards;
         }
 
         public void Shuffle()
