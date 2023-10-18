@@ -12,7 +12,8 @@ namespace CardGame
         protected string nome;
         protected int estrela;
         protected string elemento;
-        protected string path = @"..\..\..\Imagens\valquiria-clash-royale.png";
+        protected string path = @"..\..\..\Imagens\Leviata.gif";
+        protected string pathVirada;
 
         public bool faceUp = false;//indica se a carta está voltada para cima ou não
 
@@ -29,19 +30,19 @@ namespace CardGame
         public Card()
         {
             DefaultAttributes();
+
         }
         public void SetId(int id) { this.id = id; }
         public void SetNome(string nome) { this.nome = nome; }
         public void SetEstrela(int estrela) { this.estrela = estrela; }
         public void SetElemento(string elemento) { this.elemento = elemento; }
-        public void SetPath(string path) { this.path = path; }
+        public void SetPath() { this.path += nome + ".gif"; }
 
         public int GetId() { return this.id; }
         public string GetNome() { return this.nome; }
         public int GetEstrela() { return this.estrela; }
         public string GetElemento() { return this.elemento; }
         public string GetPath() { return this.path; }
-
         protected void DefaultAttributes()
         {
             FlipCard();
@@ -78,7 +79,7 @@ namespace CardGame
             }
             else
             {
-                this.Image = Image.FromFile(@"..\..\..\Imagens\cartaMonstro_Virada.gif");
+                this.Image = Image.FromFile(pathVirada);
             }
 
         }

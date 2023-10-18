@@ -11,17 +11,19 @@ namespace CardGame
         private string tipo;
         private int valor;
         private string descricao;
+        
 
-        public ActionCard(int id, string nome, int estrela, string elemento, string path, string tipo, int valor, string descricao)
+        public ActionCard(int id, string nome, int estrela, string elemento, string tipo, int valor, string descricao)
         {
             SetId(id);
             SetNome(nome);
             SetEstrela(estrela);
             SetElemento(elemento);
-            SetPath(path);
+            SetPath();
             SetTipo(tipo);
             SetValor(valor);
             SetDesc(descricao);
+            this.pathVirada = @"..\..\..\Imagens\cartaAcao_Virada.gif";
         }
         public void SetTipo(string tipo){ this.tipo = tipo; }
         public void SetValor(int valor) { this.valor = valor; }

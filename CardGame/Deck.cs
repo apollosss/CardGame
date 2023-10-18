@@ -46,13 +46,12 @@ namespace CardGame
                 int id = Convert.ToInt32(row["id_carta"]);
                 int estrela = Convert.ToInt32(row["estrela"]);
                 string elemento = Convert.ToString(row["elemento"]);
-                string path = Convert.ToString(row["link_img_carta"]);
                 int vida = Convert.ToInt32(row["vida_monstro"]);
                 int dano = Convert.ToInt32(row["dano_monstro"]);
                 int escudo = Convert.ToInt32(row["escudo_monstro"]);
                 string raca = Convert.ToString(row["raca"]);
 
-                MonsterCard m1 = new MonsterCard(id, nome, estrela, elemento, path, vida, dano, escudo, raca);
+                MonsterCard m1 = new MonsterCard(id, nome, estrela, elemento, vida, dano, escudo, raca);
 
                 lista_cartas_monstros.Add(m1);
 
@@ -65,12 +64,11 @@ namespace CardGame
                 int id = Convert.ToInt32(row["id_carta"]);
                 int estrela = Convert.ToInt32(row["estrela"]);
                 string elemento = Convert.ToString(row["elemento"]);
-                string path = Convert.ToString(row["link_img_carta"]);
                 string tipo = Convert.ToString(row["tipo"]);
                 int valor = Convert.ToInt32(row["valor_acao"]);
                 string descricao = Convert.ToString(row["desc_acao"]);
 
-                ActionCard a1 = new ActionCard(id, nome, estrela, elemento, path, tipo, valor, descricao);
+                ActionCard a1 = new ActionCard(id, nome, estrela, elemento, tipo, valor, descricao);
                 lista_cartas_acao.Add(a1);
 
             }

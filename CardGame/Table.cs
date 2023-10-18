@@ -22,7 +22,7 @@ namespace CardGame
             Deck deckMonster = new Deck();
             for (int i = 0; i < 2; i++)
             {
-                for (int j = 0; j < 6; j++)
+                for (int j = 0; j < 3; j++)
                 {
                     TablePosition tablePosition = new TablePosition(j * 90 + 500, i * 600);
                     MonsterCard carta_prov = deckMonster.lista_cartas_monstros[j + (i*6)];

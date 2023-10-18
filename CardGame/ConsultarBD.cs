@@ -13,7 +13,7 @@ namespace CardGame
         private const string host = "localhost";
         private const string user = "root";
         private const string senha = "";
-        private const string database = "gamecard_bd";
+        private const string database = "gamecard_prototipo";
         public static string connectionString = $"server={host};database={database};user={user};password={senha};";
 
         public static DataTable Consultas(string Tabela, string Campos, string Condicao)
