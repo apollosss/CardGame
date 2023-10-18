@@ -12,4 +12,8 @@
     <Folder Include="Imagens\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.1.0" />
+  </ItemGroup>
+
 </Project>
