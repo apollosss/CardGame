@@ -16,23 +16,32 @@ namespace CardGame
         {
             InitializeComponent();
         }
+        Deck deckMonster = new Deck();
         private void Table_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
-            Deck deckMonster = new Deck();
+            TablePosition tbSD = new TablePosition(915, 234);
+            TablePosition tbSE = new TablePosition(500, 234);
+            TablePosition tbID = new TablePosition(915, 423);
+            TablePosition tbIE = new TablePosition(500, 423);
+            this.Controls.Add(tbSD);
+            this.Controls.Add(tbSE);
+            this.Controls.Add(tbID);
+            this.Controls.Add(tbIE);
+
             for (int i = 0; i < 2; i++)
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    TablePosition tablePosition = new TablePosition(j * 90 + 500, i * 600);
-                    MonsterCard carta_prov = deckMonster.lista_cartas_monstros[j + (i*6)];
-                    carta_prov.Location = tablePosition.Location;
+                    MonsterCard carta_prov = deckMonster.lista_cartas_monstros[j + (i * 6)];
+                    carta_prov.Location = new Point(j * 90 + 600, i * 630);
                     carta_prov.MouseEnter += PassarMouseNaCarta;
                     carta_prov.MouseLeave += TirarMouseDaCarta;
                     this.Controls.Add(carta_prov);
                 }
             }
-            
+            for (int i = 0; i <= deckMonster.lista_cartas_monstros.Count - 1; i++)
+                label2.Text += "\n" + deckMonster.lista_cartas_monstros[i].GetNome();
         }
         private void PassarMouseNaCarta(object sender, EventArgs e)
         {
@@ -49,12 +58,18 @@ namespace CardGame
                 $"dano: {cartaselec.GetDano()} \n" +
                 $"escudo: {cartaselec.GetEscudo()} \n" +
                 $"raça: {cartaselec.GetRaca()}";
+            label3.Text = cartaselec.Location.ToString();
         }
         private void TirarMouseDaCarta(object sender, EventArgs e)
         {
             Control controleselec = (Control)sender;
             MonsterCard cartaselec = (MonsterCard)controleselec;
             cartaselec.Location = new Point(cartaselec.Location.X, cartaselec.Location.Y + 10);
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

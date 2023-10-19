@@ -16,21 +16,34 @@ namespace CardGame
         public Deck()
         {
             Preencher_parametros();
+            Shuffle();
         }
 
         public void Shuffle()
         {
-            // Método que irá embaralhar a lista cards
-            // Procurar na internet "como embaralhar uma lista ou vetor em C#"
-            // ou desenvolver própria lógica
+            for (int i = 0; i <= 100; i++)
+            {
+                MonsterCard cm;
+                ActionCard ca;
+                Random ran = new Random();
+                int n = ran.Next(0, lista_cartas_acao.Count - 1);
+                int m = ran.Next(0, lista_cartas_acao.Count - 1);
+                ca = lista_cartas_acao[n];
+                lista_cartas_acao[n] = lista_cartas_acao[m];
+                lista_cartas_acao[m] = ca;
+                cm = lista_cartas_monstros[n];
+                lista_cartas_monstros[n] = lista_cartas_monstros[m];
+                lista_cartas_monstros[m] = cm;
+            }
 
         }
+        //nessa função terá um parametro de lista de carta
 
-        DataTable tabela_monstro = ConsultarBD.Consultas("SELECT c.*,cm.* FROM carta_monstro cm,cartas c WHERE cm.id_carta=c.id_carta");
+        private DataTable tabela_monstro = ConsultarBD.Consultas("SELECT c.*,cm.* FROM carta_monstro cm,cartas c WHERE cm.id_carta=c.id_carta");
 
-        DataTable tabela_acao = ConsultarBD.Consultas("SELECT c.*,ca.* FROM carta_acao ca,cartas c WHERE ca.id_carta=c.id_carta");
+        private DataTable tabela_acao = ConsultarBD.Consultas("SELECT c.*,ca.* FROM carta_acao ca,cartas c WHERE ca.id_carta=c.id_carta");
 
-        DataTable tabela_usuario = ConsultarBD.Consultas("SELECT * FROM usuario");
+        private DataTable tabela_usuario = ConsultarBD.Consultas("SELECT * FROM usuario");
 
 
 

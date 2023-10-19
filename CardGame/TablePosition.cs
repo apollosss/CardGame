@@ -8,12 +8,13 @@ namespace CardGame
 {
     internal class TablePosition : Card
     {
-        public TablePosition(int x, int y)//coordenadas x e y para a posição da mesa de cartas
+        public TablePosition(int x, int y)
         {
-            this.Location = new System.Drawing.Point(x, y); // Define a localização da posição da mesa nas coordenadas especificadas x e y.
+            this.Location = new System.Drawing.Point(x, y); 
+            //this.contorno = azul
         }
 
-        // Event handler for the click event
+        
         
     }
 }
