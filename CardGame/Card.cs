@@ -56,6 +56,11 @@ namespace CardGame
             this.MouseMove += Card_MouseMove;
             this.MouseUp += Card_MouseUp;
             this.SizeMode = PictureBoxSizeMode.StretchImage;
+            this.Bounds = new Rectangle(
+            this.Bounds.X + 10,  // Aumenta a posição X
+            this.Bounds.Y + 10,  // Aumenta a posição Y
+            this.Bounds.Width - 20,  // Reduz a largura em 20 pixels (10 à esquerda e 10 à direita)
+            this.Bounds.Height - 20);
         }
         protected override void OnDoubleClick(EventArgs e)// Quando o usuário realiza um clique duplo em uma carta,
                                                           // esse método será

@@ -8,13 +8,14 @@ namespace CardGame
 {
     internal class TablePosition : Card
     {
+        public bool temcard = false;
+        public MonsterCard cartaalocada;
         public TablePosition(int x, int y)
         {
-            this.Location = new System.Drawing.Point(x, y); 
-            //this.contorno = azul
-        }
-
-        
-        
+            this.Enabled = false;
+            this.Location = new System.Drawing.Point(x, y);
+            this.BorderStyle = BorderStyle.Fixed3D;
+            this.Image = null;
+        }        
     }
 }

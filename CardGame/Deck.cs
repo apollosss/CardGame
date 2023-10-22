@@ -50,8 +50,6 @@ namespace CardGame
         public void Preencher_parametros()
         {
 
-           
-
             foreach (DataRow row in tabela_monstro.Rows)//Preenchendo os campos das cartas monstro e guardando
                                                         //cada carta em uma lista de cartas de monstro
             {
@@ -65,13 +63,11 @@ namespace CardGame
                 string raca = Convert.ToString(row["raca"]);
 
                 MonsterCard m1 = new MonsterCard(id, nome, estrela, elemento, vida, dano, escudo, raca);
-
                 lista_cartas_monstros.Add(m1);
-
             }
 
             foreach (DataRow row in tabela_acao.Rows)//Preenchendo os campos das cartas de ação e guardando
-                                                     //cada carta em uma lista de cartas de ação
+                                                        //cada carta em uma lista de cartas de ação
             {
                 string nome = Convert.ToString(row["nome_carta"]);
                 int id = Convert.ToInt32(row["id_carta"]);
@@ -83,7 +79,6 @@ namespace CardGame
 
                 ActionCard a1 = new ActionCard(id, nome, estrela, elemento, tipo, valor, descricao);
                 lista_cartas_acao.Add(a1);
-
             }
 
             foreach (DataRow row in tabela_usuario.Rows)//Preenchendo os campos das cartas de ação e guardando
@@ -96,10 +91,7 @@ namespace CardGame
 
                 Usuario u1 = new Usuario(id, nickname, senha, nivel);
                 lista_usuarios.Add(u1);
-
             }
-
-
         }
 
 
